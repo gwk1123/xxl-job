@@ -1,4 +1,4 @@
 APPNAME=xxljobadmin
-PORT=9000
+PORT=8085
 docker build -t $APPNAME .
 docker run -d --name $APPNAME -p $PORT:$PORT $APPNAME
