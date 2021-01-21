@@ -1,10 +1,5 @@
 FROM openjdk:8
-MAINTAINER xuxueli
-
-ENV PARAMS=""
-ENV TZ=PRC
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-ADD target/xxl-job-admin-*.jar /xxl-job-admin.jar
-
-ENTRYPOINT ["sh","-c","java -jar $JAVA_OPTS /xxl-job-admin.jar $PARAMS"]
+VOLUME /date/eureka
+ADD xxl-job-admin-2.2.1-SNAPSHOT.jar xxl-job-admin.jar
+EXPOSE 8091
+ENTRYPOINT ["java","-jar","/xxl-job-admin.jar"]
